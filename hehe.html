@@ -1,0 +1,366 @@
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Little Surprise ❤️</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: "Segoe UI", sans-serif;
+        min-height: 100vh;
+        overflow: hidden;
+        background: linear-gradient(135deg, #ffd6e7, #ffb6d5, #ffe5ef);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #7a2450;
+    }
+
+    .screen {
+        width: 100%;
+        min-height: 100vh;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        padding: 25px;
+        position: relative;
+    }
+
+    .screen.active {
+        display: flex;
+        animation: fadeIn 0.7s ease;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: scale(.9);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    h1 {
+        font-size: clamp(28px, 6vw, 55px);
+        margin-bottom: 15px;
+    }
+
+    p {
+        font-size: 20px;
+        margin-bottom: 25px;
+    }
+
+    /* Bear */
+    .bear {
+        font-size: 150px;
+        animation: float 2.5s ease-in-out infinite;
+        margin-bottom: 15px;
+    }
+
+    @keyframes float {
+        0%,100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-15px);
+        }
+    }
+
+    .cry {
+        animation: cry 1s infinite alternate;
+    }
+
+    @keyframes cry {
+        from { transform: translateY(0); }
+        to { transform: translateY(5px); }
+    }
+
+    .buttons {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    button {
+        border: none;
+        border-radius: 30px;
+        padding: 14px 32px;
+        font-size: 20px;
+        cursor: pointer;
+        transition: .25s;
+        box-shadow: 0 7px 20px rgba(120, 30, 70, .2);
+    }
+
+    .yes {
+        background: #ff4f91;
+        color: white;
+    }
+
+    .yes:hover {
+        transform: scale(1.12);
+        background: #ff2f7b;
+    }
+
+    .no {
+        background: white;
+        color: #d44778;
+    }
+
+    .no:hover {
+        transform: scale(1.05);
+    }
+
+    /* Surprise */
+    .surprise {
+        max-width: 800px;
+    }
+
+    .hearts {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        overflow: hidden;
+    }
+
+    .heart {
+        position: absolute;
+        bottom: -50px;
+        font-size: 25px;
+        animation: rise linear forwards;
+    }
+
+    @keyframes rise {
+        to {
+            transform: translateY(-110vh) rotate(360deg);
+            opacity: 0;
+        }
+    }
+
+    .card {
+        background: rgba(255,255,255,.75);
+        backdrop-filter: blur(10px);
+        border-radius: 30px;
+        padding: 35px;
+        max-width: 700px;
+        box-shadow: 0 15px 50px rgba(120,30,70,.18);
+    }
+
+    .love-message {
+        line-height: 1.7;
+        font-size: 19px;
+    }
+
+    .gift {
+        font-size: 60px;
+        margin: 15px;
+        animation: bounce 1.5s infinite;
+    }
+
+    @keyframes bounce {
+        50% { transform: scale(1.15); }
+    }
+
+    .small {
+        font-size: 15px;
+        opacity: .75;
+        margin-top: 20px;
+    }
+</style>
+</head>
+
+<body>
+
+<!-- SCREEN 1 -->
+<section id="screen1" class="screen active">
+
+    <div class="hearts" id="hearts1"></div>
+
+    <div class="bear">🧸</div>
+
+    <h1>Heyyy... ❤️</h1>
+
+    <p>Can I ask you something?</p>
+
+    <h1>Do you love me? 💕<br>Will you marry me? 💍</h1>
+
+    <div class="buttons">
+        <button class="yes" onclick="showYes()">YES ❤️</button>
+        <button class="no" onclick="showNo1()">NO 😭</button>
+    </div>
+
+</section>
+
+
+<!-- YES SCREEN -->
+<section id="yesScreen" class="screen">
+
+    <div class="hearts" id="hearts2"></div>
+
+    <div class="card surprise">
+
+        <div class="bear">🧸</div>
+
+        <div class="gift">🎁💖🌹</div>
+
+        <h1>YAAAAAYYY!!! 😭❤️</h1>
+
+        <p class="love-message">
+            You have no idea how happy this little bear is right now. 🥹💕
+            <br><br>
+
+            I know things aren't always perfect, and sometimes I mess up.
+            But you mean so much to me, and I never want you to forget that.
+            <br><br>
+
+            So here's your little surprise:
+            <br>
+            🌹 One rose for every beautiful moment<br>
+            🧸 One bear for every time I miss you<br>
+            💕 One heart because you're special to me<br>
+            ✨ And countless reasons to smile
+        </p>
+
+        <div class="gift">💐🧸💗✨</div>
+
+        <p>
+            <b>I'm really sorry if I made you angry. ❤️</b>
+        </p>
+
+        <p class="small">
+            Made especially for you 💕
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- NO SCREEN -->
+<section id="noScreen" class="screen">
+
+    <div class="bear cry">😭🧸</div>
+
+    <h1>Are you sure? 🥺</h1>
+
+    <p>This little bear is getting sad...</p>
+
+    <div class="buttons">
+        <button class="yes" onclick="showYes()">YES ❤️</button>
+        <button class="no" onclick="showNo2()">NO 😭</button>
+    </div>
+
+</section>
+
+
+<!-- REALLY SCREEN -->
+<section id="reallyScreen" class="screen">
+
+    <div class="bear cry">😭🧸</div>
+
+    <h1>Really? 🥺</h1>
+
+    <p>Are you REALLY sure?</p>
+
+    <div class="buttons">
+        <button class="yes" onclick="showYes()">YES ❤️</button>
+        <button class="no" id="runawayNo">NO 😭</button>
+    </div>
+
+    <p class="small">
+        (The little bear is hoping for a smile 🥺)
+    </p>
+
+</section>
+
+
+<script>
+
+function hideAll() {
+    document.querySelectorAll(".screen").forEach(screen => {
+        screen.classList.remove("active");
+    });
+}
+
+function showYes() {
+    hideAll();
+    document.getElementById("yesScreen").classList.add("active");
+
+    createHearts();
+}
+
+function showNo1() {
+    hideAll();
+    document.getElementById("noScreen").classList.add("active");
+}
+
+function showNo2() {
+    hideAll();
+    document.getElementById("reallyScreen").classList.add("active");
+}
+
+/* Floating hearts */
+
+function createHearts() {
+
+    const container = document.getElementById("hearts2");
+
+    const emojis = ["❤️", "💕", "💗", "💖", "💘", "🌸", "✨"];
+
+    for (let i = 0; i < 45; i++) {
+
+        const heart = document.createElement("div");
+
+        heart.className = "heart";
+
+        heart.innerHTML =
+            emojis[Math.floor(Math.random() * emojis.length)];
+
+        heart.style.left = Math.random() * 100 + "%";
+
+        heart.style.animationDuration =
+            (4 + Math.random() * 5) + "s";
+
+        heart.style.animationDelay =
+            Math.random() * 3 + "s";
+
+        container.appendChild(heart);
+    }
+}
+
+
+/* Playful runaway button */
+
+const runaway = document.getElementById("runawayNo");
+
+runaway.addEventListener("mouseenter", moveButton);
+runaway.addEventListener("touchstart", moveButton);
+
+function moveButton() {
+
+    const maxX = window.innerWidth - 150;
+    const maxY = window.innerHeight - 80;
+
+    const x = Math.max(10, Math.random() * maxX);
+    const y = Math.max(10, Math.random() * maxY);
+
+    runaway.style.position = "fixed";
+    runaway.style.left = x + "px";
+    runaway.style.top = y + "px";
+}
+
+</script>
+
+</body>
+</html>          
